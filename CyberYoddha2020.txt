@@ -1,0 +1,22 @@
+# I'll just leave it here for now. Will get back and make it nice later (never)
+
+Steg 2:
+Opened the image in steganabara.
+Started looking at the color table and looking at every individual color starting with the most popular.
+FFFCFCFC ended up being the correct one.
+Flag: CYCTF{l$b_st3g@n0gr@phy_f0r_th3_w1n}
+
+I'm not lying!:
+The hint mentioned that I have to listen carefully. I did and noticed something that sounded like a Morse code.
+Opened the file in Audacity and started looking at the spectrogram. Indeed, I found a morse code at 15K frequency.
+Wrote it all down and loaded it into the morsedecoder.com.
+Flag: CYCTF{tru7h_h1dd3n_und3r_l!e$}
+
+Stegultimate:
+Ran steghide --extract -sf stegultimate.jpg, left the password blank. Extracted a nerd meme called steg3.jpg.
+Ran steghide --extract -sf steg3.jpg, left the password blank. It contained a text file called steganopayload473955.txt.
+Followed the link in that file and downloaded the raw paste with wget https://pastebin.com/raw/YnKqT9s3
+It ended up being the base64 encoded PNG file.
+base64 -d ./YnKqT9s3 > flag.png
+The PNG contained a flag.
+Flag: CYCTF{2_f0r_th3_pr1ce_0f_1_b64}
